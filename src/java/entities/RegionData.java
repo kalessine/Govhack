@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Owner
  */
 @Entity
-@Table(name = "RegionData", catalog = "careermove", schema = "")
+@Table(name = "RegionData")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "RegionData.findAll", query = "SELECT r FROM RegionData r"),
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "RegionData.findByAnzsco", query = "SELECT r FROM RegionData r WHERE r.regionDataPK.anzsco = :anzsco"),
     @NamedQuery(name = "RegionData.findBySa4code", query = "SELECT r FROM RegionData r WHERE r.regionDataPK.sa4code = :sa4code"),
     @NamedQuery(name = "RegionData.findBySa4name", query = "SELECT r FROM RegionData r WHERE r.sa4name = :sa4name"),
-    @NamedQuery(name = "RegionData.findByOccupation", query = "SELECT r FROM RegionData r WHERE r.occupation = :occupation"),
+    @NamedQuery(name = "RegionData.findByTotalScore", query = "SELECT r FROM RegionData r WHERE r.totalScore = :totalScore"),
     @NamedQuery(name = "RegionData.findByRank", query = "SELECT r FROM RegionData r WHERE r.rank = :rank"),
     @NamedQuery(name = "RegionData.findByUnempRateMvmt", query = "SELECT r FROM RegionData r WHERE r.unempRateMvmt = :unempRateMvmt"),
     @NamedQuery(name = "RegionData.findByUnempRateScore", query = "SELECT r FROM RegionData r WHERE r.unempRateScore = :unempRateScore"),
@@ -62,63 +62,62 @@ public class RegionData implements Serializable {
     @EmbeddedId
     protected RegionDataPK regionDataPK;
     @Size(max = 150)
-    @Column(name = "SA4NAME", length = 150)
+    @Column(name = "SA4NAME")
     private String sa4name;
-    @Size(max = 5)
-    @Column(name = "Occupation", length = 5)
-    private String occupation;
+    @Column(name = "TotalScore")
+    private Integer totalScore;
     @Column(name = "rank")
     private Integer rank;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "UnempRateMvmt", precision = 22)
+    @Column(name = "UnempRateMvmt")
     private Double unempRateMvmt;
     @Column(name = "UnempRateScore")
     private Integer unempRateScore;
-    @Column(name = "AverageAnnualMovement", precision = 22)
+    @Column(name = "AverageAnnualMovement")
     private Double averageAnnualMovement;
     @Column(name = "AverageAnnualMovementScore")
     private Integer averageAnnualMovementScore;
-    @Column(name = "HousePrice", precision = 22)
+    @Column(name = "HousePrice")
     private Double housePrice;
     @Column(name = "HousePriceScore")
     private Integer housePriceScore;
-    @Column(name = "RentPrice", precision = 22)
+    @Column(name = "RentPrice")
     private Double rentPrice;
     @Column(name = "RentPriceScore")
     private Integer rentPriceScore;
-    @Column(name = "MedianIncomel", precision = 22)
+    @Column(name = "MedianIncomel")
     private Double medianIncomel;
     @Column(name = "MedianIncomeScore")
     private Integer medianIncomeScore;
-    @Column(name = "PatentIncrease", precision = 22)
+    @Column(name = "PatentIncrease")
     private Double patentIncrease;
     @Column(name = "PatentIncreaseScore")
     private Integer patentIncreaseScore;
-    @Column(name = "TradeMarksIncrease", precision = 22)
+    @Column(name = "TradeMarksIncrease")
     private Double tradeMarksIncrease;
     @Column(name = "TradeMarksScore")
     private Integer tradeMarksScore;
-    @Column(name = "NewBusinessIncrease", precision = 22)
+    @Column(name = "NewBusinessIncrease")
     private Double newBusinessIncrease;
     @Column(name = "NewBusinessScore")
     private Integer newBusinessScore;
-    @Column(name = "SA4UnempRate", precision = 22)
+    @Column(name = "SA4UnempRate")
     private Double sA4UnempRate;
-    @Column(name = "OccUnemp1315", precision = 22)
+    @Column(name = "OccUnemp1315")
     private Double occUnemp1315;
     @Column(name = "OccUnemp1315Score")
     private Integer occUnemp1315Score;
     @Column(name = "SA4UnempRateScore")
     private Integer sA4UnempRateScore;
-    @Column(name = "TotalBusinesses13", precision = 22)
+    @Column(name = "TotalBusinesses13")
     private Double totalBusinesses13;
-    @Column(name = "TotalBusinesses14", precision = 22)
+    @Column(name = "TotalBusinesses14")
     private Double totalBusinesses14;
-    @Column(name = "IncreaseBusinesses", precision = 22)
+    @Column(name = "IncreaseBusinesses")
     private Double increaseBusinesses;
     @Column(name = "IncreaseBusScore")
     private Integer increaseBusScore;
-    @Column(name = "JobVacancyMvmt", precision = 22)
+    @Column(name = "JobVacancyMvmt")
     private Double jobVacancyMvmt;
     @Column(name = "JobVacancyScore")
     private Integer jobVacancyScore;
@@ -150,12 +149,12 @@ public class RegionData implements Serializable {
         this.sa4name = sa4name;
     }
 
-    public String getOccupation() {
-        return occupation;
+    public Integer getTotalScore() {
+        return totalScore;
     }
 
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
+    public void setTotalScore(Integer totalScore) {
+        this.totalScore = totalScore;
     }
 
     public Integer getRank() {

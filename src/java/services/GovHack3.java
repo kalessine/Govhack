@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import javafx.scene.chart.Axis;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
@@ -244,8 +245,9 @@ public class GovHack3 extends JFrame {
 
         try {
             ChartUtilities.writeChartAsPNG(out, chart, 600, 600);
-        } catch (IOException ex) {
-            Logger.getLogger(GovHack3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), out);
+            Logger.getLogger(GovHack1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

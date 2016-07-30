@@ -74,6 +74,7 @@ public class Load {
              em.persist(rd);
              rd = null;
              em.getTransaction().commit();
+             em.clear();
          }
          
     }

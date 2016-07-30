@@ -2,6 +2,9 @@ package services;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -11,6 +14,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,18 +46,21 @@ public class GraphWebService {
                     WebApplicationException {
                 synchronized (CareerMove.lock) {
                     try {
-
                         GovHack2.saveJPEG(region, os);
                     } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                    try {
-                        Thread.sleep(900);
-                    } catch (InterruptedException ie) {
+                        try {
+                            IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                        } catch (Exception ex2) {
+                        }
+                    } finally {
+                        os.flush();
+                        os.close();
+                        try {
+                            Thread.sleep(900);
+                        } catch (InterruptedException ie) {
+                        }
                     }
                 }
-                os.flush();
-                os.close();
             }
         };
         MediaType m = new MediaType("image", "image/png");
@@ -76,13 +83,17 @@ public class GraphWebService {
                     try {
                         GovHack2.saveJPEG(region, os);
                     } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                    os.flush();
-                    os.close();
-                    try {
-                        Thread.sleep(900);
-                    } catch (InterruptedException ie) {
+                        try {
+                            IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                        } catch (Exception ex2) {
+                        }
+                    } finally {
+                        os.flush();
+                        os.close();
+                        try {
+                            Thread.sleep(900);
+                        } catch (InterruptedException ie) {
+                        }
                     }
                 }
 
@@ -133,16 +144,19 @@ public class GraphWebService {
                     try {
                         GovHack3.saveJPEG(left, right, industry, os);
                     } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                    os.flush();
-                    os.close();
-                    try {
-                        Thread.sleep(900);
-                    } catch (InterruptedException ie) {
+                        try {
+                            IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                        } catch (Exception ex2) {
+                        }
+                    } finally {
+                        os.flush();
+                        os.close();
+                        try {
+                            Thread.sleep(900);
+                        } catch (InterruptedException ie) {
+                        }
                     }
                 }
-
             }
         };
         MediaType m = new MediaType("image", "image/png");
@@ -152,6 +166,7 @@ public class GraphWebService {
     @GET
     @Path("fte.png")
     @Produces("image/png")
+
     public Response fte(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry) {
         StreamingOutput stream = new StreamingOutput() {
             @Override
@@ -161,13 +176,17 @@ public class GraphWebService {
                     try {
                         GovHack4.saveJPEG(left, right, industry, os);
                     } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                    os.flush();
-                    os.close();
-                    try {
-                        Thread.sleep(900);
-                    } catch (InterruptedException ie) {
+                        try {
+                            IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                        } catch (Exception ex2) {
+                        }
+                    } finally {
+                        os.flush();
+                        os.close();
+                        try {
+                            Thread.sleep(900);
+                        } catch (InterruptedException ie) {
+                        }
                     }
                 }
 
@@ -180,18 +199,23 @@ public class GraphWebService {
     @GET
     @Path("unemp.png")
     @Produces("image/png")
-    public Response fte(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("anzsco") String anzsco) {
-        StreamingOutput stream = new StreamingOutput() {
+    public Response fte(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("occupation") String anzsco) {
+        StreamingOutput stream;
+        stream = new StreamingOutput() {
             @Override
             public void write(OutputStream os) throws IOException,
                     WebApplicationException {
                 try {
                     UnempRate.savePNG(left, right, industry, anzsco, os);
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    try {
+                        IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                    } catch (Exception ex2) {
+                    }
+                } finally {
+                    os.flush();
+                    os.close();
                 }
-                os.flush();
-                os.close();
             }
         };
         MediaType m = new MediaType("image", "image/png");

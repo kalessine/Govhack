@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -28,11 +29,12 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class UnempRate {
 
-    public static void savePNG(String left, String right, String industry, String anzsco,OutputStream out) {
+    public static void savePNG(String left, String right, String industry, String anzsco,OutputStream out) throws IOException {
         JFreeChart chart = createChart(createDataset(left, right, industry, anzsco));
         try {
             ChartUtilities.writeChartAsPNG(out, chart, 600, 600);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
+            IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), out);
             Logger.getLogger(GovHack1.class.getName()).log(Level.SEVERE, null, ex);
         }
         return;

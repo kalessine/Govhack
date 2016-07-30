@@ -45,11 +45,19 @@ function enableGo()
         
 }  
     
+ 
+    
 function showResult(rankKey){
+         
+          var localLink = $(".local");
+          $.each(localLink, function(key, value)
+          {
+             
+         });
          
          $("#part3").fadeIn();
          
-         var localLink = $(".local");
+         
         
           $.each(localLink, function(key, value){
               
@@ -59,9 +67,20 @@ function showResult(rankKey){
                 +"&right=" + rankKey 
                 +"&industry=" + $(industrySelect).val()
                 +"&occupation=" + $(occupationSelect).val();
-              setTimeout(function(){
-                   $(value).attr("src", url);
-              },1000);              
+              
+              $(value).unbind();
+              var _value =  $(value); 
+              var _url = url;
+              setTimeout(function(){                   
+                   _value.click(function(){
+                       //alert("clicked");
+                        $('#chartDialog').modal('show');
+                        $('#chartDialogImg').attr("src", url) = _self.attr("src", _url);  
+                   });
+                   _value.attr("src", _url);
+              },100);              
+                
+              
                 
             });  
          

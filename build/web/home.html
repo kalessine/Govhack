@@ -43,38 +43,38 @@
                         <div class="section">  
                            
                         <div class="row form-control-static">
-                        <div class="form-group" >
-                            <div class="col-xs-4 text-right"> 
-                                location: 
-                            </div> 
-                            <div class="col-xs-4">
-                                <select class="form-control" style="width:100%" id="postcodeSelect"></select>
+                            <div class="form-group" >
+                                <div class="col-xs-4 text-right"> 
+                                    location: 
+                                </div> 
+                                <div class="col-xs-4">
+                                    <select class="form-control" style="width:100%" id="postcodeSelect"></select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row form-control-static"> 
-                            <div class="col-xs-4 text-right vertical-margin-5"> 
-                                Industry: 
-                            </div> 
-                            <div class="col-xs-4">
-                                <select class="form-control" id="industrySelect"></select>
+                            <div class="row form-control-static"> 
+                                <div class="col-xs-4 text-right vertical-margin-5"> 
+                                    Industry: 
+                                </div> 
+                                <div class="col-xs-4">
+                                    <select class="form-control" id="industrySelect"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row form-control-static"> 
-                            <div class="col-xs-4 text-right vertical-margin-5"> 
-                                occupation: 
-                            </div> 
-                            <div class="col-sm-4">
-                                <select class="form-control" id="occupationSelect"></select>
+                            <div class="row form-control-static"> 
+                                <div class="col-xs-4 text-right vertical-margin-5"> 
+                                    occupation: 
+                                </div> 
+                                <div class="col-sm-4">
+                                    <select class="form-control" id="occupationSelect"></select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row form-control-static"> 
-                            <div class="col-xs-8 text-right">
-                                <div id="go" disabled class="btn btn-default">Go</div>
-                            </div>       
-                            
-                        </div>
+                            <div class="row form-control-static"> 
+                                <div class="col-xs-8 text-right">
+                                    <div id="go" disabled class="btn btn-default">Go</div>
+                                </div>       
+                                
+                            </div>
                         </div>
                         </div>
                     </div>
@@ -123,24 +123,24 @@
                     <div class="xtab-pane" id="TabA" style="min-height:900px;border:1px dashed blue" >
                         <div class=""> 
                             <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                <img class="local" data-imagecode="rest/lefthousingincome.png" src="" style="width:100%; border:1px dotted blue" />
+                                <img class="local" data-imagecode="rest/lefthousingincome.png" src="" style="width:100%;" />
                             </div>   
                             <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                <img class="local" data-imagecode="rest/righthousingincome.png" src="" style="width:100%; border:1px dotted blue" />
+                                <img class="local" data-imagecode="rest/righthousingincome.png" src="" style="width:100%;" />
                             </div>    
 
                             <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                <img class="local" data-imagecode="rest/ito.png" src="" style="width:100%; border:1px dotted blue" />
+                                <img class="local" data-imagecode="rest/ito.png" src="" style="width:100%;" />
                             </div> 
                             <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                <img class="local" data-imagecode="rest/iva.png" src="" style="width:100%; border:1px dotted blue" />
+                                <img class="local" data-imagecode="rest/iva.png" src="" style="width:100%;" />
                             </div> 
                             <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                <img class="local" data-imagecode="rest/fte.png" src="" style="width:100%; border:1px dotted blue" />
+                                <img class="local" data-imagecode="rest/fte.png" src="" style="width:100%;" />
                             </div> 
 
                             <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                <img class="local" data-imagecode="rest/unemp.png" src="" style="width:100%; border:1px dotted blue" />
+                                <img class="local" data-imagecode="rest/unemp.png" src="" style="width:100%;" />
                             </div> 
 
                         </div>
@@ -217,6 +217,28 @@
         <p>This web site is using JQuery 1.10, Bootstrap 3. Backend it is running Java hosted on Apache TomCat running on an Amazon Webservices Server.
             Data is pulled directly from ABS Stat and also from data loaded into a MySQL Database.  
         </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<div id="chartDialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <!--
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Technical Details</h4>
+      </div>
+      -->
+      <div class="modal-body" style="width:800px;height:600px;">
+        <img id="chartDialogImg" src="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
