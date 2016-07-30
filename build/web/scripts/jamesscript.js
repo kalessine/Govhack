@@ -57,7 +57,6 @@ var changeInteraction = function() {
 };
 */
 selectSingleClick.on('select', function(e) {
-    alert("test");
     var feats = e.selected;
     if( feats.length == 0 ) return;
     var sa4=feats[0];

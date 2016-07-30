@@ -244,7 +244,8 @@ public class GovHack1 extends JFrame {
 
         try {
             ChartUtilities.writeChartAsPNG(out, chart, 600, 600);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
+            InputStream in = CareerMove.class.getResourceAsStream("error.png");
             Logger.getLogger(GovHack1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

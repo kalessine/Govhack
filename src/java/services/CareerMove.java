@@ -1,7 +1,12 @@
 package services;
 
 
+import entities.RegionData;
 import java.net.MalformedURLException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import sdmx.Queryable;
 import sdmx.Registry;
 import sdmx.Repository;
@@ -19,6 +24,9 @@ import sdmx.net.list.DataProvider;
  * @author James
  */
 public class CareerMove {
+    public static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("GovhackPU");
+    public static EntityManager EM = EMF.createEntityManager();
+    
     public static DataProvider dp = null;
     public static Queryable queryable = null;
     public static Registry reg = null;
@@ -37,5 +45,12 @@ static {
             rep = queryable.getRepository();
         }
   public CareerMove() {
+  }
+  public static RegionData findRegionData(String sa4,String industry,String anzsco) {
+      Query q = EM.createQuery("select r from RegionData r where r.regionDataPK.industry=:industry and r.regionDataPK.sa4code=:sa4 and r.regionDataPK.anzsco=:anzsco");
+      q.setParameter("industry",industry);
+      q.setParameter("anzsco",anzsco);
+      q.setParameter("sa4", sa4);
+      return (RegionData)q.getSingleResult();
   }
 }

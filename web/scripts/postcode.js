@@ -2647,9 +2647,10 @@ $( document ).ready(function() {
     var listitems = "";
     select = $('#postcodeSelect');
     
-    
+    var first = true;
     $.each(postcodes.data, function(key, value){
-        listitems = listitems + "<option value='" + value.key + "'>" + value.value + "</option>";
+        listitems = listitems + "<option " + (first ? "disabled selected" : "") + " value='" + value.key + "'>" + value.value + "</option>";
+        first = false;
     });  
     $('#postcodeSelect').append(listitems);
 });

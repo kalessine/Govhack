@@ -2,35 +2,66 @@
 $( document ).ready(function() {
      $('#go').click(function(){
          //$("#rankSelect").show();
-         $("#part2").show();
-         window.location.href = "#part2";
+         $("#part2").css("position","relative");
+         $("#part2").css("top","0px");
+         $("#part2").css("left","0px");
+         $("#part2").fadeIn(2000);
+        
+         //window.location.href = "#part2";
+          var aTag = $("a[name='part2']");
+         $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+
+     })
+     $(postcodeSelect).change(function(){
+         $(industrySelect).focus();  
+         enableGo();
+     })
+     $(industrySelect).change(function(){
+         $(occupationSelect).focus();
+         enableGo();
+     })
+     $(occupationSelect).change(function(){
+          $("#go").focus();
+         enableGo();
      })
      
-     $('#info').click(function(){
-         //$("#rankSelect").show();
-         $("#part2").show();
-         window.location.href = "#part2";
-     })
-     
-     
+
 });
 
-    
+ 
+function enableGo()
+{
+        var p1 = $(postcodeSelect).val();
+        var p2 = $(industrySelect).val();
+        var p3 = $(occupationSelect).val();
+        if (p1 && p2 && p3)
+        {
+             $('#go').removeAttr("disabled");
+        }
+        else
+        {
+            $('#go').attr('disabled','disabled');           
+        }
+        
+}  
     
 function showResult(rankKey){
-         $("#part3").show();
          
+         $("#part3").fadeIn();
          
          var localLink = $(".local");
-         
+        
           $.each(localLink, function(key, value){
-               var url = $(value).attr( "data-imagecode" ) + "?region=" + rankKey 
+              
+              $(value).attr("src", "content/gears.gif");
+              var url = $(value).attr( "data-imagecode" ) + "?region=" + rankKey 
                 +"&left=" + $(postcodeSelect).val()
                 +"&right=" + rankKey 
                 +"&industry=" + $(industrySelect).val()
                 +"&occupation=" + $(occupationSelect).val();
-                
-               $(value).attr("src", url);
+              setTimeout(function(){
+                   $(value).attr("src", url);
+              },1000);              
                 
             });  
          
@@ -94,9 +125,10 @@ function showResult(rankKey){
       
          
          
-         window.location.href = "#part3";
+         //window.location.href = "#part3";
          
-         
+           var aTag = $("a[name='part3']");
+         $('html,body').animate({scrollTop: aTag.offset().top},'slow');
          
          
 };

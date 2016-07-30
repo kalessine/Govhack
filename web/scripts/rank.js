@@ -1,11 +1,11 @@
 
 ranks = {
      data : [
-          { "key" : '501' ,  "value" : "  Sydney Ranked 1 " },
-          { "key" : '502' ,  "value" : "  Perth Ranked 2 " },
-          { "key" : '503' ,  "value" : "  Albany Ranked 3 " },
-          { "key" : '504' ,  "value" : "  Collie Ranked 4 " },
-          { "key" : '506' ,  "value" : "  Brisbabe Ranked 5 " },
+          { "key" : '501' ,  "value" : "  Sydney" },
+          { "key" : '502' ,  "value" : "  Perth" },
+          { "key" : '503' ,  "value" : "  Albany" },
+          { "key" : '504' ,  "value" : "  Collie" },
+          { "key" : '506' ,  "value" : "  Brisbane" },
          
      ]
 }
@@ -14,12 +14,13 @@ ranks = {
 
 
 $( document ).ready(function() {
-    var listitems = "";
+    var listitems = "<ol>";
    
     $.each(ranks.data, function(key, value){
         //listitems = listitems + "<option value='" + value.key + "'>" + value.value + "</option>";
-        listitems = listitems + "<a href='javascript:showResult(\"" + value.key + "\");' >" + value.value + "</a><br>";
+        listitems = listitems + "<li><a href='javascript:showResult(\"" + value.key + "\");' >" + value.value + "</a></li>";
     });  
+    listitems = listitems + "</ol>";
     $('#rankSelect').append(listitems);
 });
 

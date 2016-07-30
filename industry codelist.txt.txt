@@ -1,0 +1,148 @@
+            <str:Codelist agencyID="ABS" isExternalReference="false" isFinal="false" version="1.0" id="CL_ABS_CENSUS2011_B44_MEASURE">
+                <com:Name xml:lang="en">ABS_CENSUS2011_B44_MEASURE codelist</com:Name>
+                <str:Code id="TOT">
+                    <com:Name xml:lang="en">Total</com:Name>
+                    <com:Name xml:lang="fr">Total</com:Name>
+                </str:Code>
+                <str:Code id="A">
+                    <com:Name xml:lang="en">Agriculture, forestry and fishing</com:Name>
+                    <com:Name xml:lang="fr">Agriculture, forestry and fishing</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="B">
+                    <com:Name xml:lang="en">Mining</com:Name>
+                    <com:Name xml:lang="fr">Mining</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="C">
+                    <com:Name xml:lang="en">Manufacturing</com:Name>
+                    <com:Name xml:lang="fr">Manufacturing</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="D">
+                    <com:Name xml:lang="en">Electricity, gas, water and waste services</com:Name>
+                    <com:Name xml:lang="fr">Electricity, gas, water and waste services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="E">
+                    <com:Name xml:lang="en">Construction</com:Name>
+                    <com:Name xml:lang="fr">Construction</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="F">
+                    <com:Name xml:lang="en">Wholesale trade</com:Name>
+                    <com:Name xml:lang="fr">Wholesale trade</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="G">
+                    <com:Name xml:lang="en">Retail trade</com:Name>
+                    <com:Name xml:lang="fr">Retail trade</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="H">
+                    <com:Name xml:lang="en">Accommodation and food services</com:Name>
+                    <com:Name xml:lang="fr">Accommodation and food services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="I">
+                    <com:Name xml:lang="en">Transport, postal and warehousing</com:Name>
+                    <com:Name xml:lang="fr">Transport, postal and warehousing</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="J">
+                    <com:Name xml:lang="en">Information media and telecommunications</com:Name>
+                    <com:Name xml:lang="fr">Information media and telecommunications</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="K">
+                    <com:Name xml:lang="en">Financial and insurance services</com:Name>
+                    <com:Name xml:lang="fr">Financial and insurance services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="L">
+                    <com:Name xml:lang="en">Rental, hiring and real estate services</com:Name>
+                    <com:Name xml:lang="fr">Rental, hiring and real estate services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="M">
+                    <com:Name xml:lang="en">Professional, scientific and technical services</com:Name>
+                    <com:Name xml:lang="fr">Professional, scientific and technical services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="N">
+                    <com:Name xml:lang="en">Administrative and support services</com:Name>
+                    <com:Name xml:lang="fr">Administrative and support services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="O">
+                    <com:Name xml:lang="en">Public administration and safety</com:Name>
+                    <com:Name xml:lang="fr">Public administration and safety</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="P">
+                    <com:Name xml:lang="en">Education and training</com:Name>
+                    <com:Name xml:lang="fr">Education and training</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="Q">
+                    <com:Name xml:lang="en">Health care and social assistance</com:Name>
+                    <com:Name xml:lang="fr">Health care and social assistance</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="R">
+                    <com:Name xml:lang="en">Arts and recreation services</com:Name>
+                    <com:Name xml:lang="fr">Arts and recreation services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="S">
+                    <com:Name xml:lang="en">Other services</com:Name>
+                    <com:Name xml:lang="fr">Other services</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+                <str:Code id="Z">
+                    <com:Name xml:lang="en">Inadequately described/Not stated</com:Name>
+                    <com:Name xml:lang="fr">Inadequately described/Not stated</com:Name>
+                    <str:Parent>
+                        <Ref id="TOT"/>
+                    </str:Parent>
+                </str:Code>
+            </str:Codelist>
+f

@@ -48,7 +48,7 @@ public class GraphWebService {
                         ex.printStackTrace();
                     }
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(900);
                     } catch (InterruptedException ie) {
                     }
                 }
@@ -81,7 +81,7 @@ public class GraphWebService {
                     os.flush();
                     os.close();
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(900);
                     } catch (InterruptedException ie) {
                     }
                 }
@@ -110,7 +110,7 @@ public class GraphWebService {
                     os.flush();
                     os.close();
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(900);
                     } catch (InterruptedException ie) {
                     }
                 }
@@ -138,7 +138,7 @@ public class GraphWebService {
                     os.flush();
                     os.close();
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(900);
                     } catch (InterruptedException ie) {
                     }
                 }
@@ -166,7 +166,7 @@ public class GraphWebService {
                     os.flush();
                     os.close();
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(900);
                     } catch (InterruptedException ie) {
                     }
                 }
@@ -175,5 +175,27 @@ public class GraphWebService {
         };
         MediaType m = new MediaType("image", "image/png");
         return Response.ok(stream).type("image/png").build();
+    }
+
+    @GET
+    @Path("unemp.png")
+    @Produces("image/png")
+    public Response fte(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("anzsco") String anzsco) {
+        StreamingOutput stream = new StreamingOutput() {
+            @Override
+            public void write(OutputStream os) throws IOException,
+                    WebApplicationException {
+                try {
+                    UnempRate.savePNG(left, right, industry, anzsco, os);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                os.flush();
+                os.close();
+            }
+        };
+        MediaType m = new MediaType("image", "image/png");
+        return Response.ok(stream)
+                .type("image/png").build();
     }
 }
