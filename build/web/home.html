@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Career Move</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="scripts/jquery-1.10.2.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/theme.css">
+        <link type="text/css" rel="stylesheet" href="css/my.css">
+        <link type="text/css" rel="stylesheet" href="css/ol.css">
+        <script type="text/javascript" src="scripts/ol.js"></script>
+        <link href="content/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="content/site.css" rel="stylesheet" type="text/css">
+
+        <script src="scripts/postcode.js"></script>
+        <script src="scripts/occuptationCategory.js"></script>
+        <script src="scripts/rank.js"></script>
+        <script src="scripts/app.js"></script>
+        
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+    </head>
+    <body>
+        
+        <div class="body-content" >
+           
+            <div class="section part1 form-horizontal">
+                 <div class="panel panel-default">
+                    <div id="banner" class="panel-body text-center"><h1>Career Move</h1></div>
+                </div>
+                <div class="row form-control-static">
+                    <div class="form-group" >
+                        <div class="col-sm-3 text-right"> 
+                            location: 
+                        </div> 
+                        <div class="col-sm-4">
+                            <select class="form-control" id="postcodeSelect"></select>
+                        </div>
+                    </div>
+
+                    <div class="row form-control-static"> 
+                        <div class="col-sm-3 text-right vertical-margin-5"> 
+                            Industry: 
+                        </div> 
+                        <div class="col-sm-4">
+                            <select class="form-control" id="industrySelect"></select>
+                        </div>
+                    </div>
+                    <div class="row form-control-static"> 
+                        <div class="col-sm-3 text-right vertical-margin-5"> 
+                            occupation: 
+                        </div> 
+                        <div class="col-sm-4">
+                            <select class="form-control" id="occupationSelect"></select>
+                        </div>
+                    </div>
+
+                    <div class="row form-control-static"> 
+                        <div class="col-sm-3 text-right vertical-margin-5"> 
+
+                        </div> 
+                        <div class="col-sm-4 text-right">
+                            <div id="go" class="btn btn-default">Go</div>
+                        </div>       
+                        <div class="col-sm-4 text-right">
+                            
+                                   
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">Data Sets</a></br>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">Team</a></br>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">GoveHack</a></br>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">Other</a></br>
+                        </div>
+                    </div>
+                </div>
+                <a name="part2">&nbsp;</a>
+                <hr>
+                <!-- ***********************************************************   -->
+                <div id="part2" class="section" style="">
+                    <a name="part2A">Rankings</a>
+                    <div class="row form-control-static"> 
+                        <div class="col-sm-3 text-right vertical-margin-5"> 
+
+                        </div> 
+                        <div class="col-sm-4">
+                            <div style="" id="rankSelect"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a name="part2" ></a>
+            <div id="map" style='width: 600px; height: 600px;'></div>
+           <script src="scripts/jamesscript.js"></script>
+            <a name="part3">&nbsp;</a>
+            <hr>
+            <!-- ***********************************************************   -->
+            <div id="part3" class="section" style="">  
+                <a name="part3B">Details</a> 
+
+                <ul id="tabSet" class="nav nav-tabs">
+                    <li><a href="javascript:tab('A');">Region</a></li>
+                    <li><a href="javascript:tab('B');">Industry</a></li>
+                    <li><a href="javascript:tab('C');">Occupation</a></li>                
+                </ul>
+                
+                <div>
+                    <div class="xtab-pane" id="TabA" style="min-height:900px;border:1px dashed blue" >
+                        <div class=""> 
+                            <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                <img class="local" data-imagecode="rest/lefthousingincome.png" src="" style="width:100%; border:1px dotted blue" />
+                            </div>   
+                            <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                <img class="local" data-imagecode="rest/righthousingincome.png" src="" style="width:100%; border:1px dotted blue" />
+                            </div>    
+
+                            <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                <img class="local" data-imagecode="rest/ito.png" src="" style=" height:300px; width:100%; border:1px dotted blue" />
+                            </div> 
+                            <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                <img class="local" data-imagecode="rest/iva.png" src="" style=" height:300px; width:100%; border:1px dotted blue" />
+                            </div> 
+                            <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                <img class="local" data-imagecode="rest/fte.png" src="" style=" height:300px; width:100%; border:1px dotted blue" />
+                            </div> 
+
+                        </div>
+                    </div> 
+                    <div class="xtab-pane" id="TabB" style="display:none; min-height:900px;border:1px dashed blue">
+                        <div class=""> 
+                            <div id="columnchart_values" > </div>
+                        </div>
+                    </div> 
+                    <div class="xtab-pane" id="TabC" style="display:none; min-height:900px;border:1px dashed blue">
+                        <div class=""> 
+                                    <div id="chart_div" style="">
+                                    </div>
+
+                        </div>
+                    </div> 
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+        <!-- ****************************************  -->
+        <!--  dialogs -->
+        <!-- ****************************************  -->
+ <div id="infoDialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Details</h4>
+      </div>
+      <div class="modal-body">
+        <p>Text text text</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+        
+<div id="teamDialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Details</h4>
+      </div>
+      <div class="modal-body">
+        <p>Move caree</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+        
+        
+        
+        
+        
+        <!-- audio -->
+        
+        
+        
+        <div id="backgroundaudio">
+ <i class="icon-volume-up"></i>
+ <audio autoplay="" controls="" loop="" preload="">
+  <source src="http://192.254.184.234/~tangh/01_admin_resources/Shimmer/ogg/Smile.ogg" type="audio/ogg"></source>
+  <source src="http://192.254.184.234/~tangh/01_admin_resources/Shimmer/mp3/Smile.mp3" type="audio/mpeg"></source>
+  Your browser does not support the audio element.
+ </audio>
+</div>
+        
+        
+        
+    </body>
+</html>
