@@ -47,13 +47,13 @@ public class TradeMarksIncrease {
         String s1 = rightRD.getSa4name();
         String s2 = "";
         DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
-        defaultcategorydataset.addValue(leftRD.getPatentIncrease(), s, s2);
-        defaultcategorydataset.addValue(rightRD.getPatentIncrease(), s1, s2);
+        defaultcategorydataset.addValue(leftRD.getTradeMarksIncrease(), s, s2);
+        defaultcategorydataset.addValue(rightRD.getTradeMarksIncrease(), s1, s2);
         return defaultcategorydataset;
     }
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
-        JFreeChart jfreechart = ChartFactory.createBarChart("Patent Increase", "Region", "Change", categorydataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart jfreechart = ChartFactory.createBarChart("TradeMarks Increase", "Region", "Change", categorydataset, PlotOrientation.VERTICAL, true, true, false);
         jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
