@@ -240,6 +240,7 @@ public class GovHack1 extends JFrame {
         //GovHack1 gv = new GovHack1("title");
         StructuredDataMessage sdm = getSDM1(region1, region2, industry);
         JFreeChart chart = ChartFactory.createXYLineChart("Industry Turnover", "Value", "Time", getDataSet(region1, region2, sdm));
+        chart.setBackgroundPaint(new Color(0xffffff));
         XYPlot xyplot = (XYPlot) chart.getPlot();
         xyplot.setForegroundAlpha(0.65F);
         XYItemRenderer xyitemrenderer = xyplot.getRenderer();

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Owner
  */
 @Entity
-@Table(name = "RegionData")
+@Table(name = "RegionData", catalog = "careermove", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "RegionData.findAll", query = "SELECT r FROM RegionData r"),
@@ -55,72 +55,78 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "RegionData.findByIncreaseBusinesses", query = "SELECT r FROM RegionData r WHERE r.increaseBusinesses = :increaseBusinesses"),
     @NamedQuery(name = "RegionData.findByIncreaseBusScore", query = "SELECT r FROM RegionData r WHERE r.increaseBusScore = :increaseBusScore"),
     @NamedQuery(name = "RegionData.findByJobVacancyMvmt", query = "SELECT r FROM RegionData r WHERE r.jobVacancyMvmt = :jobVacancyMvmt"),
-    @NamedQuery(name = "RegionData.findByJobVacancyScore", query = "SELECT r FROM RegionData r WHERE r.jobVacancyScore = :jobVacancyScore")})
+    @NamedQuery(name = "RegionData.findByJobVacancyScore", query = "SELECT r FROM RegionData r WHERE r.jobVacancyScore = :jobVacancyScore"),
+    @NamedQuery(name = "RegionData.findByNumBus1315Mvmt", query = "SELECT r FROM RegionData r WHERE r.numBus1315Mvmt = :numBus1315Mvmt"),
+    @NamedQuery(name = "RegionData.findByNumBus1315Score", query = "SELECT r FROM RegionData r WHERE r.numBus1315Score = :numBus1315Score")})
 public class RegionData implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected RegionDataPK regionDataPK;
     @Size(max = 150)
-    @Column(name = "SA4NAME")
+    @Column(name = "SA4NAME", length = 150)
     private String sa4name;
     @Column(name = "TotalScore")
     private Integer totalScore;
     @Column(name = "rank")
     private Integer rank;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "UnempRateMvmt")
+    @Column(name = "UnempRateMvmt", precision = 22)
     private Double unempRateMvmt;
     @Column(name = "UnempRateScore")
     private Integer unempRateScore;
-    @Column(name = "AverageAnnualMovement")
+    @Column(name = "AverageAnnualMovement", precision = 22)
     private Double averageAnnualMovement;
     @Column(name = "AverageAnnualMovementScore")
     private Integer averageAnnualMovementScore;
-    @Column(name = "HousePrice")
+    @Column(name = "HousePrice", precision = 22)
     private Double housePrice;
     @Column(name = "HousePriceScore")
     private Integer housePriceScore;
-    @Column(name = "RentPrice")
+    @Column(name = "RentPrice", precision = 22)
     private Double rentPrice;
     @Column(name = "RentPriceScore")
     private Integer rentPriceScore;
-    @Column(name = "MedianIncomel")
+    @Column(name = "MedianIncomel", precision = 22)
     private Double medianIncomel;
     @Column(name = "MedianIncomeScore")
     private Integer medianIncomeScore;
-    @Column(name = "PatentIncrease")
+    @Column(name = "PatentIncrease", precision = 22)
     private Double patentIncrease;
     @Column(name = "PatentIncreaseScore")
     private Integer patentIncreaseScore;
-    @Column(name = "TradeMarksIncrease")
+    @Column(name = "TradeMarksIncrease", precision = 22)
     private Double tradeMarksIncrease;
     @Column(name = "TradeMarksScore")
     private Integer tradeMarksScore;
-    @Column(name = "NewBusinessIncrease")
+    @Column(name = "NewBusinessIncrease", precision = 22)
     private Double newBusinessIncrease;
     @Column(name = "NewBusinessScore")
     private Integer newBusinessScore;
-    @Column(name = "SA4UnempRate")
+    @Column(name = "SA4UnempRate", precision = 22)
     private Double sA4UnempRate;
-    @Column(name = "OccUnemp1315")
+    @Column(name = "OccUnemp1315", precision = 22)
     private Double occUnemp1315;
     @Column(name = "OccUnemp1315Score")
     private Integer occUnemp1315Score;
     @Column(name = "SA4UnempRateScore")
     private Integer sA4UnempRateScore;
-    @Column(name = "TotalBusinesses13")
+    @Column(name = "TotalBusinesses13", precision = 22)
     private Double totalBusinesses13;
-    @Column(name = "TotalBusinesses14")
+    @Column(name = "TotalBusinesses14", precision = 22)
     private Double totalBusinesses14;
-    @Column(name = "IncreaseBusinesses")
+    @Column(name = "IncreaseBusinesses", precision = 22)
     private Double increaseBusinesses;
     @Column(name = "IncreaseBusScore")
     private Integer increaseBusScore;
-    @Column(name = "JobVacancyMvmt")
+    @Column(name = "JobVacancyMvmt", precision = 22)
     private Double jobVacancyMvmt;
     @Column(name = "JobVacancyScore")
     private Integer jobVacancyScore;
+    @Column(name = "NumBus1315Mvmt", precision = 22)
+    private Double numBus1315Mvmt;
+    @Column(name = "NumBus1315Score")
+    private Integer numBus1315Score;
 
     public RegionData() {
     }
@@ -371,6 +377,22 @@ public class RegionData implements Serializable {
 
     public void setJobVacancyScore(Integer jobVacancyScore) {
         this.jobVacancyScore = jobVacancyScore;
+    }
+
+    public Double getNumBus1315Mvmt() {
+        return numBus1315Mvmt;
+    }
+
+    public void setNumBus1315Mvmt(Double numBus1315Mvmt) {
+        this.numBus1315Mvmt = numBus1315Mvmt;
+    }
+
+    public Integer getNumBus1315Score() {
+        return numBus1315Score;
+    }
+
+    public void setNumBus1315Score(Integer numBus1315Score) {
+        this.numBus1315Score = numBus1315Score;
     }
 
     @Override

@@ -74,9 +74,9 @@
                         </div>
                     </div>
                     <div class="col-sm-1 text-right">
-                        <a style="cursor:pointer" data-toggle="modal" data-target="#dataDialog">Data Sets</a></br>
+                        <a style="cursor:pointer" href="DatasetsforGovhack.docx" >Data Sets</a></br>
                         <a style="cursor:pointer" data-toggle="modal" data-target="#teamDialog">Team</a></br>
-                        <a style="cursor:pointer" data-toggle="modal" data-target="#methDialog">Methodoloy</a></br>
+                        <a style="cursor:pointer" href="MethodologyforGovhack.docx">Methodoloy</a></br>
                         <a style="cursor:pointer" data-toggle="modal" data-target="#techDialog">Technical</a></br>                        
                     </div>                
                 </div>
@@ -92,98 +92,100 @@
                         <div class="col-sm-4 vertical-margin-5"> 
                             <div class="rankDataArea" style="height:280px"><h3> Top Ranked Matching regions <h3>
                                         <div style="" id="rankSelect"></div>
-                            </div>
-                            <div class="rankDataArea" style="padding:0px 20px;">select one of the top ranked regions<br> or select a region for comparison from the map</div>
-                        </div>                         
-                        <div class="col-sm-8 text-right">
-                            <div id="map" ></div>
-                            <script src="scripts/jamesscript.js"></script>
-                        </div>   
-                    </div>
-                </div>
-                <a name="part3">&nbsp;</a>
+                                        </div>
+                                        <div class="rankDataArea" style="padding:0px 20px;">select one of the top ranked regions<br> or select a region for comparison from the map</div>
+                                        </div>                         
+                                        <div class="col-sm-8 text-right">
+                                            <div id="map" ></div>
+                                            <script src="scripts/jamesscript.js"></script>
+                                        </div>   
+                                        </div>
+                                        </div>
+                                        <a name="part3">&nbsp;</a>
 
-                    <!-- ***********************************************************   -->
-                    <div id="part3" class="section" style="display:none">  
-                        <ul id="tabSet" class="nav nav-tabs">
-                            <li><a href="javascript:tab('A');">Region</a></li>
-                            <li><a href="javascript:tab('B');">Industry</a></li>
-                            <li><a href="javascript:tab('C');">Occupation</a></li>                
-                        </ul>
+                                        <!-- ***********************************************************   -->
+                                        <div id="part3" class="section" style="display:none;border-bottom:0px;" >  
+                                            <ul id="tabSet" class="nav nav-tabs">
+                                                <li><a href="javascript:tab('A');">Region</a></li>
+                                                <li><a href="javascript:tab('B');">Industry</a></li>
+                                                <li><a href="javascript:tab('C');">Occupation</a></li>                
+                                            </ul>
 
-                        <div>
-                            <div class="xtab-pane" id="TabA" style="min-height:900px;border:1px dashed blue" >
-                                <div class=""> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/lefthousingincome.png" src="" style="width:100%;" />
-                                    </div>   
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/righthousingincome.png" src="" style="width:100%;" />
-                                    </div>    
+                                            <div>
+                                                <div class="xtab-pane" id="TabA" style="min-height:900px;border:1px dashed blue;border-bottom:0px;" >
+                                                    <div class=""> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/lefthousingincome.png" src="" style="width:100%;" />
+                                                        </div>   
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/righthousingincome.png" src="" style="width:100%;" />
+                                                        </div>    
 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/ito.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/iva.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/fte.png" src="" style="width:100%;" />
-                                    </div> 
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/trademarksincrease.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/medianincome.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/houseprice.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/rentprice.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/newbusinessincrease.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/patentincrease.png" src="" style="width:100%;" />
-                                    </div> 
-
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/sa4unemprate.png" src="" style="width:100%;" />
-                                    </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/totalbusinesses.png" src="" style="width:100%;" />
-                                    </div> 
-
-                                </div>
-                            </div> 
-                            <div class="xtab-pane" id="TabB" style="display:none; min-height:900px;border:1px dashed blue">
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/unemp.png" src="" style="width:100%;" />
-                                    </div>
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/averageannualmvmt.png" src="" style="width:100%;" />
-                                    </div> 
-                            </div> 
-                            <div class="xtab-pane" id="TabC" style="display:none; min-height:900px;border:1px dashed blue">
-                                <div class=""> 
-                                    <div id="chart_div" style="">
-                                    </div>
-
-                                </div>
-                            </div> 
-                        </div>
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/ito.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/iva.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/fte.png" src="" style="width:100%;" />
+                                                        </div> 
 
 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/trademarksincrease.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/medianincome.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/houseprice.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/rentprice.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/newbusinessincrease.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/patentincrease.png" src="" style="width:100%;" />
+                                                        </div> 
 
-                    </div>
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/sa4unemprate.png" src="" style="width:100%;" />
+                                                        </div> 
+                                                        <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                            <img class="local" data-imagecode="rest/totalbusinesses.png" src="" style="width:100%;" />
+                                                        </div> 
+
+                                                    </div>
+                                                </div> 
+                                                <div class="xtab-pane" id="TabB" style="display:none; min-height:900px;border:1px dashed blue;border-bottom:0px;">
+                                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                        <img class="local" data-imagecode="rest/unemp.png" src="" style="width:100%;" />
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                        <img class="local" data-imagecode="rest/averageannualmvmt.png" src="" style="width:100%;" />
+                                                    </div> 
+                                                </div> 
+                                                <div class="xtab-pane" id="TabC" style="display:none; min-height:900px;border:1px dashed blue;border-bottom:0px;">
+                                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                        <img class="local" data-imagecode="rest/occunemp1315.png" src="" style="width:100%;" />
+                                                    </div> 
+                                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                                        <img class="local" data-imagecode="rest/jobvacancymvmt.png" src="" style="width:100%;" />
+                                                    </div> 
+                                                    
+                                                </div> 
+                                            </div>
 
 
-                    </div>
-                    </div>
+
+                                        </div>
+
+
+                                        </div>
+                                        </div>
 
 
                                         <!-- ****************************************  -->
@@ -205,7 +207,7 @@
                                                 </div><!-- /.modal-content -->
                                             </div><!-- /.modal-dialog -->
                                         </div><!-- /.modal -->
-                                        
+
                                         <div id="methDialog" class="modal fade">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -234,11 +236,11 @@
                                                     <div class="modal-body">
                                                         Career move designed and developed by :<br><br>
                                                         <ul>
-                                                        <li>Julie Considene</li>
-                                                        <li>Jeff Sinclair</li>
-                                                        <li>James Gardner</li>
-                                                        <li>Richard Hill</li>
-                                                        <li>Leon Salam</li>
+                                                            <li>Julie Considene</li>
+                                                            <li>Jeff Sinclair</li>
+                                                            <li>James Gardner</li>
+                                                            <li>Richard Hill</li>
+                                                            <li>Leon Salam</li>
                                                         </ul>
                                                     </div>
                                                     <div class="modal-footer">

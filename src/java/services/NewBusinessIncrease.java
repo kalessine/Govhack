@@ -54,9 +54,12 @@ public class NewBusinessIncrease {
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
         JFreeChart jfreechart = ChartFactory.createBarChart("New Business Increase", "Region", "Change", categorydataset, PlotOrientation.VERTICAL, true, true, false);
-        jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
+        jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
+        if( numberaxis.getUpperBound()==0 ) {
+            numberaxis.setUpperBound(Math.abs(numberaxis.getLowerBound())*.1d);
+        }
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         BarRenderer barrenderer = (BarRenderer) categoryplot.getRenderer();
         barrenderer.setDrawBarOutline(false);

@@ -53,8 +53,8 @@ public class HousePrice {
     }
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
-        JFreeChart jfreechart = ChartFactory.createBarChart("House Price", "Region", "Value", categorydataset, PlotOrientation.VERTICAL, true, true, false);
-        jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
+        JFreeChart jfreechart = ChartFactory.createBarChart("House Price", "Region", "Value", categorydataset, PlotOrientation.HORIZONTAL, true, true, false);
+        jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());

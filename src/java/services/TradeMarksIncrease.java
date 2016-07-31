@@ -20,6 +20,7 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -54,17 +55,22 @@ public class TradeMarksIncrease {
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
         JFreeChart jfreechart = ChartFactory.createBarChart("TradeMarks Increase", "Region", "Change", categorydataset, PlotOrientation.VERTICAL, true, true, false);
-        jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
+        jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
+        if( numberaxis.getUpperBound()==0 ) {
+            numberaxis.setUpperBound(Math.abs(numberaxis.getLowerBound())*.1d);
+        }
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         BarRenderer barrenderer = (BarRenderer) categoryplot.getRenderer();
+        StandardBarPainter painter = new StandardBarPainter();
+        barrenderer.setBarPainter(painter);
         barrenderer.setDrawBarOutline(false);
         barrenderer.setMinimumBarLength(0.10000000000000001D);
-        GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.blue, 0.0F, 0.0F, Color.lightGray);
-        GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.green, 0.0F, 0.0F, Color.lightGray);
-        barrenderer.setSeriesPaint(0, gradientpaint);
-        barrenderer.setSeriesPaint(1, gradientpaint1);
+        //GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.blue, 0.0F, 0.0F, Color.lightGray);
+        //GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.green, 0.0F, 0.0F, Color.lightGray);
+        barrenderer.setSeriesPaint(0, Color.blue);
+        barrenderer.setSeriesPaint(1, Color.green);
         return jfreechart;
     }
 

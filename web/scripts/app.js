@@ -82,7 +82,7 @@ function showResult(rankKey){
                    _value.click(function(){
                        //alert("clicked");
                         $('#chartDialog').modal('show');
-                        $('#chartDialogImg').attr("src", url) = _value.attr("src", _url);  
+                        $('#chartDialogImg').attr("src", _url);  
                    });
                    _value.attr("src", _url);
               },100);              

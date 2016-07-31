@@ -57,7 +57,7 @@ public class TotalBusinesses {
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
         JFreeChart jfreechart = ChartFactory.createBarChart("Total Businesses 2013,2014", "Region", "Total", categorydataset, PlotOrientation.VERTICAL, true, true, false);
-        jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
+        jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());

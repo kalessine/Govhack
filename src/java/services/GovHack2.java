@@ -229,6 +229,7 @@ public class GovHack2 extends JFrame {
                 createDataset1(region, sdm),
                 PlotOrientation.HORIZONTAL,
                 true, true, false);
+        chart.setBackgroundPaint(new Color(0xffffff));
         XYPlot xyplot = (XYPlot) chart.getPlot();
         xyplot.setForegroundAlpha(0.65F);
         XYItemRenderer xyitemrenderer = xyplot.getRenderer();

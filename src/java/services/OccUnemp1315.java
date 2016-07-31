@@ -27,7 +27,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  *
  * @author Owner
  */
-public class Sa4UnempRate {
+public class OccUnemp1315 {
 
     public static void savePNG(String left, String right, String industry, String anzsco,OutputStream out) throws IOException {
         JFreeChart chart = createChart(createDataset(left, right, industry, anzsco));
@@ -47,24 +47,27 @@ public class Sa4UnempRate {
         String s1 = rightRD.getSa4name();
         String s2 = "";
         DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
-        defaultcategorydataset.addValue(leftRD.getSA4UnempRate(), s, s2);
-        defaultcategorydataset.addValue(rightRD.getSA4UnempRate(), s1, s2);
+        defaultcategorydataset.addValue(leftRD.getOccUnemp1315(), s, s2);
+        defaultcategorydataset.addValue(rightRD.getOccUnemp1315(), s1, s2);
         return defaultcategorydataset;
     }
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
-        JFreeChart jfreechart = ChartFactory.createBarChart("Unemployment Rate", "Region", "Unemployment Rate", categorydataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart jfreechart = ChartFactory.createBarChart("Change In Occupation Unemp 2013-2015", "Region", "Change %", categorydataset, PlotOrientation.VERTICAL, true, true, false);
         jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
+        if( numberaxis.getUpperBound()==0 ) {
+            numberaxis.setUpperBound(Math.abs(numberaxis.getLowerBound())*.1d);
+        }
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         BarRenderer barrenderer = (BarRenderer) categoryplot.getRenderer();
         barrenderer.setDrawBarOutline(false);
         barrenderer.setMinimumBarLength(0.10000000000000001D);
-        GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.blue, 0.0F, 0.0F, Color.lightGray);
-        GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.green, 0.0F, 0.0F, Color.lightGray);
-        barrenderer.setSeriesPaint(0, gradientpaint);
-        barrenderer.setSeriesPaint(1, gradientpaint1);
+        //GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.blue, 0.0F, 0.0F, Color.lightGray);
+        //GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.green, 0.0F, 0.0F, Color.lightGray);
+        barrenderer.setSeriesPaint(0, Color.YELLOW);
+        barrenderer.setSeriesPaint(1, Color.BLUE);
         return jfreechart;
     }
 

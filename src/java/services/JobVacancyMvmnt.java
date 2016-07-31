@@ -27,7 +27,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  *
  * @author Owner
  */
-public class Sa4UnempRate {
+public class JobVacancyMvmnt {
 
     public static void savePNG(String left, String right, String industry, String anzsco,OutputStream out) throws IOException {
         JFreeChart chart = createChart(createDataset(left, right, industry, anzsco));
@@ -47,16 +47,19 @@ public class Sa4UnempRate {
         String s1 = rightRD.getSa4name();
         String s2 = "";
         DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
-        defaultcategorydataset.addValue(leftRD.getSA4UnempRate(), s, s2);
-        defaultcategorydataset.addValue(rightRD.getSA4UnempRate(), s1, s2);
+        defaultcategorydataset.addValue(leftRD.getJobVacancyMvmt(), s, s2);
+        defaultcategorydataset.addValue(rightRD.getJobVacancyMvmt(), s1, s2);
         return defaultcategorydataset;
     }
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
-        JFreeChart jfreechart = ChartFactory.createBarChart("Unemployment Rate", "Region", "Unemployment Rate", categorydataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart jfreechart = ChartFactory.createBarChart("Job Vacancy Movement", "Region", "Movement", categorydataset, PlotOrientation.VERTICAL, true, true, false);
         jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
+        if( numberaxis.getUpperBound()==0 ) {
+            numberaxis.setUpperBound(Math.abs(numberaxis.getLowerBound())*.1d);
+        }
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         BarRenderer barrenderer = (BarRenderer) categoryplot.getRenderer();
         barrenderer.setDrawBarOutline(false);

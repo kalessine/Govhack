@@ -263,7 +263,7 @@ public class GraphWebService {
             public void write(OutputStream os) throws IOException,
                     WebApplicationException {
                 try {
-                    HousePrice.savePNG(left, right, industry, anzsco, os);
+                    AverageAnnualMovement.savePNG(left, right, industry, anzsco, os);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     try {
@@ -453,6 +453,60 @@ public class GraphWebService {
                     WebApplicationException {
                 try {
                     TotalBusinesses.savePNG(left, right, industry, anzsco, os);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    try {
+                        IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                    } catch (Exception ex2) {
+                    }
+                } finally {
+                    os.flush();
+                    os.close();
+                }
+            }
+        };
+        MediaType m = new MediaType("image", "image/png");
+        return Response.ok(stream)
+                .type("image/png").build();
+    }
+    @GET
+    @Path("occunemp1315.png")
+    @Produces("image/png")
+    public Response occUnemp1315(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("occupation") String anzsco) {
+        StreamingOutput stream;
+        stream = new StreamingOutput() {
+            @Override
+            public void write(OutputStream os) throws IOException,
+                    WebApplicationException {
+                try {
+                    OccUnemp1315.savePNG(left, right, industry, anzsco, os);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    try {
+                        IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                    } catch (Exception ex2) {
+                    }
+                } finally {
+                    os.flush();
+                    os.close();
+                }
+            }
+        };
+        MediaType m = new MediaType("image", "image/png");
+        return Response.ok(stream)
+                .type("image/png").build();
+    }
+    @GET
+    @Path("jobvacancymvmt.png")
+    @Produces("image/png")
+    public Response jobvacancy(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("occupation") String anzsco) {
+        StreamingOutput stream;
+        stream = new StreamingOutput() {
+            @Override
+            public void write(OutputStream os) throws IOException,
+                    WebApplicationException {
+                try {
+                    JobVacancyMvmnt.savePNG(left, right, industry, anzsco, os);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     try {

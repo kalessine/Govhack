@@ -53,16 +53,16 @@ public class RentPrice {
     }
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
-        JFreeChart jfreechart = ChartFactory.createBarChart("Rent Price", "Region", "Value", categorydataset, PlotOrientation.VERTICAL, true, true, false);
-        jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
+        JFreeChart jfreechart = ChartFactory.createBarChart("Rent Price", "Region", "Value", categorydataset, PlotOrientation.HORIZONTAL, true, true, false);
+        jfreechart.setBackgroundPaint(new Color(0xffffff));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
         numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         BarRenderer barrenderer = (BarRenderer) categoryplot.getRenderer();
         barrenderer.setDrawBarOutline(false);
         barrenderer.setMinimumBarLength(0.10000000000000001D);
-        GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.blue, 0.0F, 0.0F, Color.lightGray);
-        GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.green, 0.0F, 0.0F, Color.lightGray);
+        GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.ORANGE, 0.0F, 0.0F, Color.lightGray);
+        GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.MAGENTA, 0.0F, 0.0F, Color.lightGray);
         barrenderer.setSeriesPaint(0, gradientpaint);
         barrenderer.setSeriesPaint(1, gradientpaint1);
         return jfreechart;

@@ -24,12 +24,11 @@ import services.CareerMove;
 public class Load {
     public static void main(String args[]) throws FileNotFoundException, IOException {
          EntityManager em = CareerMove.EMF.createEntityManager();
-         String industry = "A";
-         FileInputStream fis = new FileInputStream("industry2.csv");
+         String industry = "8";
+         FileInputStream fis = new FileInputStream("8.csv");
          InputStreamReader isr = new InputStreamReader(fis);
          BufferedReader br = new BufferedReader(isr);
          br.readLine();// Fields
-         
          while(br.ready()) {
              em.getTransaction().begin();
              StringTokenizer st = new StringTokenizer(br.readLine(),",");
@@ -50,8 +49,9 @@ public class Load {
              rd.setRentPriceScore(Integer.parseInt(st.nextToken()));
              rd.setMedianIncomel(Double.parseDouble(st.nextToken()));
              rd.setMedianIncomeScore(Integer.parseInt(st.nextToken()));
-             rd.setOccUnemp1315(Double.parseDouble(st.nextToken()));
-             rd.setOccUnemp1315Score(Integer.parseInt(st.nextToken()));
+             //st.nextToken();
+             //st.nextToken();
+
              rd.setPatentIncrease(Double.parseDouble(st.nextToken()));
              rd.setTradeMarksIncrease(Double.parseDouble(st.nextToken()));
              rd.setNewBusinessIncrease(Double.parseDouble(st.nextToken()));
@@ -66,11 +66,15 @@ public class Load {
              rd.setTotalBusinesses14(Double.parseDouble(st.nextToken()));
              rd.setIncreaseBusinesses(Double.parseDouble(st.nextToken()));
              rd.setIncreaseBusScore(Integer.parseInt(st.nextToken()));
-             //st.nextToken();//all_sa4_codes
-             //st.nextToken(); // nswscore
-             //st.nextToken(); // state
+             st.nextToken();//all_sa4_codes
+             st.nextToken(); // nswscore
+             st.nextToken(); // state
              rd.setJobVacancyMvmt(Double.parseDouble(st.nextToken()));
              rd.setJobVacancyScore(Integer.parseInt(st.nextToken()));
+             rd.setOccUnemp1315(Double.parseDouble(st.nextToken()));
+             rd.setOccUnemp1315Score(Integer.parseInt(st.nextToken()));
+             rd.setNumBus1315Mvmt(Double.parseDouble(st.nextToken()));
+             rd.setNumBus1315Score(Integer.parseInt(st.nextToken()));
              em.persist(rd);
              rd = null;
              em.getTransaction().commit();

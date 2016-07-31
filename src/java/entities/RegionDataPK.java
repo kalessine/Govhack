@@ -22,17 +22,17 @@ public class RegionDataPK implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 5)
-    @Column(name = "Industry")
+    @Column(name = "Industry", nullable = false, length = 5)
     private String industry;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "ANZSCO")
+    @Column(name = "ANZSCO", nullable = false, length = 50)
     private String anzsco;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 5)
-    @Column(name = "SA4CODE")
+    @Column(name = "SA4CODE", nullable = false, length = 5)
     private String sa4code;
 
     public RegionDataPK() {
