@@ -73,7 +73,7 @@ public class CalculateRank {
         //score+=rd.getSA4UnempRateScore();
         score+=rd.getTradeMarksScore();
         score+=rd.getUnempRateScore();
-        score+=rd.getNumBus1315Score();
+        //score+=rd.getNumBus1315Score();
         return score;
     }
 }
