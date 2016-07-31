@@ -1,15 +1,22 @@
 
 $( document ).ready(function() {
      $('#go').click(function(){
+         
+         CalculateRanks();
          //$("#rankSelect").show();
          $("#part2").css("position","relative");
          $("#part2").css("top","0px");
          $("#part2").css("left","0px");
          $("#part2").fadeIn(2000);
         
+         
+         
          //window.location.href = "#part2";
           var aTag = $("a[name='part2']");
          $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+         
+         
+         
 
      })
      $(postcodeSelect).change(function(){

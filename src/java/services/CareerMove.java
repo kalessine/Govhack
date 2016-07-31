@@ -3,6 +3,8 @@ package services;
 
 import entities.RegionData;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -52,5 +54,24 @@ static {
       q.setParameter("anzsco",anzsco);
       q.setParameter("sa4", sa4);
       return (RegionData)q.getSingleResult();
+  }
+  public static List<RegionData> top5String(String industry,String anzsco) {
+      Query q = EM.createQuery("select r from RegionData r where r.regionDataPK.industry=:industry and r.regionDataPK.anzsco=:anzsco order by r.rank ASC");
+      q.setParameter("industry",industry);
+      q.setParameter("anzsco",anzsco);
+      List<RegionData> list = q.getResultList();
+      if( list.size() > 5 ) {
+          List<RegionData> result = new ArrayList<RegionData>();
+          for(int i=0;i<5;i++) {
+              result.add(list.get(i));
+          }
+          return result;
+      }else {
+          List<RegionData> result = new ArrayList<RegionData>();
+          for(int i=0;i<list.size();i++) {
+              result.add(list.get(i));
+          }
+          return result;
+      }
   }
 }

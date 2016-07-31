@@ -53,7 +53,7 @@ public class UnempRate {
     }
 
     public static JFreeChart createChart(CategoryDataset categorydataset) {
-        JFreeChart jfreechart = ChartFactory.createBarChart("Unemployment Movement", "Rate", "Region", categorydataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart jfreechart = ChartFactory.createBarChart("Unemployment Movement", "Region", "Rate", categorydataset, PlotOrientation.VERTICAL, true, true, false);
         jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
         CategoryPlot categoryplot = jfreechart.getCategoryPlot();
         NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();

@@ -126,7 +126,7 @@ public class GovHack1 extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static StructuredDataMessage getSDM1(String region1,String region2,String industry) {
+    public static StructuredDataMessage getSDM1(String region1, String region2, String industry) {
         try {
 
             DataflowType flow = new DataflowType();
@@ -182,7 +182,7 @@ public class GovHack1 extends JFrame {
                     dims.add(new DimensionValueType("REGION", region2));
                 }
                 if (dim.getId().equals("MEASURE")) {
-                    
+
                 }
                 or.setDimensionValue(dims);
                 ors.add(or);
@@ -215,6 +215,7 @@ public class GovHack1 extends JFrame {
             dm.setDataStructure(flow.getStructure(), null);
             StructuredDataMessage sdm = new StructuredDataMessage(dm, reg);
             StructuredDataSet sds = sdm.getStructuredDataSet(0);
+            /*
             for (int i = 0; i < sdm.getStructuredDataSet(0).size(); i++) {
                 for (int j = 0; j < sdm.getStructuredDataSet(0).getColumnCount(); j++) {
                     ItemType c = sdm.getStructuredDataSet(0).getStructuredValue(i, j).getCode();
@@ -227,6 +228,7 @@ public class GovHack1 extends JFrame {
                 }
                 System.out.println();
             }
+             */
             return sdm;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -234,10 +236,10 @@ public class GovHack1 extends JFrame {
         }
     }
 
-    public static void saveJPEG(String region1,String region2,String industry, OutputStream out) throws Exception {
+    public static void saveJPEG(String region1, String region2, String industry, OutputStream out) throws Exception {
         //GovHack1 gv = new GovHack1("title");
-        StructuredDataMessage sdm = getSDM1(region1,region2,industry);
-        JFreeChart chart = ChartFactory.createXYLineChart("Industry Turnover", "Value", "Time", getDataSet(region1,region2, sdm));
+        StructuredDataMessage sdm = getSDM1(region1, region2, industry);
+        JFreeChart chart = ChartFactory.createXYLineChart("Industry Turnover", "Value", "Time", getDataSet(region1, region2, sdm));
         XYPlot xyplot = (XYPlot) chart.getPlot();
         xyplot.setForegroundAlpha(0.65F);
         XYItemRenderer xyitemrenderer = xyplot.getRenderer();
@@ -253,13 +255,17 @@ public class GovHack1 extends JFrame {
 
     public static XYDataset getDataSet(String region1, String region2, StructuredDataMessage sdm) {
         TimeSeriesCollection col = new TimeSeriesCollection();
-        final TimeSeries series1 = new TimeSeries("Your SA4");
-        final TimeSeries series2 = new TimeSeries("Selected SA4");
+        TimeSeries series1 = null;
+        TimeSeries series2 = null;
         StructuredDataSet ds = sdm.getStructuredDataSet(0);
         DataSet ds2 = ds.getDataSet();
         for (int i = 0; i < ds.size(); i++) {
             if (region1.equals(ds.getStructuredValue(i, ds2.getColumnIndex("REGION")).getValue())) {
-                String r1 =NameableType.toString( ds.getStructuredValue(i,ds2.getColumnIndex("REGION")).getCode());
+
+                String r1 = NameableType.toString(ds.getStructuredValue(i, ds2.getColumnIndex("REGION")).getCode());
+                if( series1 == null ) {
+                    series1 = new TimeSeries(r1);
+                }
                 String time = ds.getStructuredValue(i, ds2.getColumnIndex("TIME")).getValue();
                 RegularTimePeriod rtp = TimeUtil.parseTime("A", time);
                 Double value = Double.parseDouble(ds.getStructuredValue(i, ds2.getColumnIndex("OBS_VALUE")).getValue());
@@ -267,14 +273,23 @@ public class GovHack1 extends JFrame {
                 series1.add(rtp, value);
             }
             if (region2.equals(ds.getStructuredValue(i, ds2.getColumnIndex("REGION")).getValue())) {
-                String r2 =NameableType.toString( ds.getStructuredValue(i,ds2.getColumnIndex("REGION")).getCode());
+                String r2 = NameableType.toString(ds.getStructuredValue(i, ds2.getColumnIndex("REGION")).getCode());
+                if( series2 == null ) {
+                    series2 = new TimeSeries(r2);
+                }
                 String time = ds.getStructuredValue(i, ds2.getColumnIndex("TIME")).getValue();
                 RegularTimePeriod rtp = TimeUtil.parseTime("A", time);
-                Double value = Double.parseDouble(ds.getStructuredValue(i,ds2.getColumnIndex("OBS_VALUE")).getValue());
+                Double value = Double.parseDouble(ds.getStructuredValue(i, ds2.getColumnIndex("OBS_VALUE")).getValue());
                 series2.setDescription(r2);
                 series2.add(rtp, value);
             }
         }
+                if( series1 == null ) {
+                    series1 = new TimeSeries("");
+                }
+                if( series2 == null ) {
+                    series2 = new TimeSeries("");
+                }
         col.addSeries(series1);
         col.addSeries(series2);
         return col;

@@ -24,8 +24,8 @@ public class CalculateRank {
         Query q1 = em.createQuery("select distinct rd.regionDataPK.industry from RegionData rd");
         List<String> industries = q1.getResultList();
         for (int i = 0; i < industries.size(); i++) {
-            Query q2 = em.createQuery("select distinct rd.regionDataPK.anzsco from RegionData rd where rd.regionDataPK=:industry");
-            q2.setParameter(":industry", industries.get(i));
+            Query q2 = em.createQuery("select distinct rd.regionDataPK.anzsco from RegionData rd where rd.regionDataPK.industry=:industry");
+            q2.setParameter("industry", industries.get(i));
             List<String> occupations = q2.getResultList();
             for (int j = 0; j < occupations.size(); j++) {
                 doIndustryOcc(industries.get(i), occupations.get(j));
@@ -66,7 +66,8 @@ public class CalculateRank {
         score+=rd.getOccUnemp1315Score();
         score+=rd.getPatentIncreaseScore();
         score+=rd.getRentPriceScore();
-        score+=rd.getSA4UnempRateScore();
+        // null pointers in this row
+        //score+=rd.getSA4UnempRateScore();
         score+=rd.getTradeMarksScore();
         score+=rd.getUnempRateScore();
         return score;
