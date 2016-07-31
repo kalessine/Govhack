@@ -39,8 +39,8 @@ public class Load {
             RegionDataPK pk = new RegionDataPK();
             pk.setIndustry(industry);
             rd.setSa4name(st.nextToken());
-            pk.setAnzsco(st.nextToken());
             pk.setSa4code(st.nextToken());
+            pk.setAnzsco(st.nextToken());
             rd.setRegionDataPK(pk);
             rd.setUnempRateMvmt(Double.parseDouble(st.nextToken()));
             rd.setUnempRateScore(Integer.parseInt(st.nextToken()));
@@ -74,6 +74,7 @@ public class Load {
             st.nextToken(); // state
             rd.setJobVacancyMvmt(Double.parseDouble(st.nextToken()));
             rd.setJobVacancyScore(Integer.parseInt(st.nextToken()));
+            String s = st.nextToken();
             rd.setOccUnemp1315(Double.parseDouble(st.nextToken()));
             rd.setOccUnemp1315Score(Integer.parseInt(st.nextToken()));
             rd.setNumBus1315Mvmt(Double.parseDouble(st.nextToken()));
