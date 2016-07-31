@@ -11,7 +11,7 @@ occupations = {
         { "key" : 'D' , "value" : "Electricity" },
         { "key" : 'K' , "value" : "Financial and insurance services " },
         { "key" : 'Q' , "value" : "Health care and social assistance " },
-        { "key" : 'Z' , "value" : "Inadequately described/Not stated " },
+        //{ "key" : 'Z' , "value" : "Inadequately described/Not stated " },
         { "key" : 'J' , "value" : "Information media and telecommunications" },
         { "key" : 'C' , "value" : "Manufacturing " },
         { "key" : 'B' , "value" : "Mining " },

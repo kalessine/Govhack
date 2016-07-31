@@ -4,6 +4,7 @@ import entities.RegionData;
 import java.io.IOException;
 import java.io.OutputStream;
 import static java.lang.System.out;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -475,5 +476,14 @@ public class GraphWebService {
     public List<RegionData> top5(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("occupation") String anzsco) {
         List<RegionData> top5 = CareerMove.top5String(industry, anzsco);
         return top5;
+    }
+    @GET
+    @Path("regiondata.json")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RegionData> getRD(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("occupation") String anzsco) {
+        List<RegionData> result = new ArrayList<RegionData>();
+        result.add(CareerMove.findRegionData(left, industry, anzsco));
+        result.add(CareerMove.findRegionData(right, industry, anzsco));
+        return result;
     }
 }

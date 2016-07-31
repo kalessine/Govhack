@@ -10,28 +10,18 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.Year;
-import org.jfree.data.xy.DefaultXYDataset;
-import org.jfree.data.xy.XYDataset;
 
 /**
  *
@@ -50,49 +40,35 @@ public class TotalBusinesses {
         return;
     }
 
-    public static TimeSeriesCollection createDataset(String left, String right, String industry, String anzsco) {
+    public static CategoryDataset createDataset(String left, String right, String industry, String anzsco) {
         RegionData leftRD = CareerMove.findRegionData(left, industry, anzsco);
         RegionData rightRD = CareerMove.findRegionData(right, industry, anzsco);
-        TimeSeries series1 = new TimeSeries(leftRD.getSa4name());
-        TimeSeries series2 = new TimeSeries(rightRD.getSa4name());
-        TimeSeriesCollection col = new TimeSeriesCollection();
-        series1.add(new Year(2013), leftRD.getTotalBusinesses13());
-        series1.add(new Year(2014), leftRD.getTotalBusinesses14());
-        series1.add(new Year(2013), rightRD.getTotalBusinesses13());
-        series1.add(new Year(2014), rightRD.getTotalBusinesses14());
-        col.addSeries(series1);
-        col.addSeries(series2);
-        return col;
+        String s = leftRD.getSa4name();
+        String s1 = rightRD.getSa4name();
+        String s2 = "2013";
+        String s3 = "2014";
+        DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
+        defaultcategorydataset.addValue(leftRD.getTotalBusinesses13(), s, s2);
+        defaultcategorydataset.addValue(leftRD.getTotalBusinesses14(), s, s3);
+        defaultcategorydataset.addValue(rightRD.getTotalBusinesses13(), s1, s2);
+        defaultcategorydataset.addValue(rightRD.getTotalBusinesses14(), s1, s3);
+        return defaultcategorydataset;
     }
 
-    public static JFreeChart createChart(TimeSeriesCollection col) {
-JFreeChart chart = ChartFactory.createTimeSeriesChart(
-            "Total Businesses 2013,2014",  // title
-            "Time",             // x-axis label
-            "Number",   // y-axis label
-            col,            // data
-            true,               // create legend?
-            true,               // generate tooltips?
-            false               // generate URLs?
-        );
-
-
-        XYPlot plot = (XYPlot) chart.getPlot();
-        plot.setDomainPannable(true);
-        plot.setRangePannable(false);
-        plot.setDomainCrosshairVisible(true);
-        plot.setRangeCrosshairVisible(true);
-
-        XYItemRenderer r = plot.getRenderer();
-        if (r instanceof XYLineAndShapeRenderer) {
-            XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) r;
-            renderer.setBaseShapesVisible(false);
-        }
-
-        DateAxis axis = (DateAxis) plot.getDomainAxis();
-        axis.setDateFormatOverride(new SimpleDateFormat("MMM-yyyy"));
-        return chart;
+    public static JFreeChart createChart(CategoryDataset categorydataset) {
+        JFreeChart jfreechart = ChartFactory.createBarChart("Total Businesses 2013,2014", "Region", "Total", categorydataset, PlotOrientation.VERTICAL, true, true, false);
+        jfreechart.setBackgroundPaint(new Color(0xbbbbdd));
+        CategoryPlot categoryplot = jfreechart.getCategoryPlot();
+        NumberAxis numberaxis = (NumberAxis) categoryplot.getRangeAxis();
+        numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+        BarRenderer barrenderer = (BarRenderer) categoryplot.getRenderer();
+        barrenderer.setDrawBarOutline(false);
+        barrenderer.setMinimumBarLength(0.10000000000000001D);
+        GradientPaint gradientpaint = new GradientPaint(0.0F, 0.0F, Color.blue, 0.0F, 0.0F, Color.lightGray);
+        GradientPaint gradientpaint1 = new GradientPaint(0.0F, 0.0F, Color.green, 0.0F, 0.0F, Color.lightGray);
+        barrenderer.setSeriesPaint(0, gradientpaint);
+        barrenderer.setSeriesPaint(1, gradientpaint1);
+        return jfreechart;
     }
 
 }
-
