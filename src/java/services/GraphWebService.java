@@ -523,6 +523,33 @@ public class GraphWebService {
         return Response.ok(stream)
                 .type("image/png").build();
     }
+    @GET
+    @Path("numbusmvmt.png")
+    @Produces("image/png")
+    public Response numbusmvmt(final @QueryParam("left") String left, final @QueryParam("right") String right, final @QueryParam("industry") String industry, final @QueryParam("occupation") String anzsco) {
+        StreamingOutput stream;
+        stream = new StreamingOutput() {
+            @Override
+            public void write(OutputStream os) throws IOException,
+                    WebApplicationException {
+                try {
+                    NumBusMvmt.savePNG(left, right, industry, anzsco, os);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    try {
+                        IOUtils.copy(CareerMove.class.getResourceAsStream("error.png"), os);
+                    } catch (Exception ex2) {
+                    }
+                } finally {
+                    os.flush();
+                    os.close();
+                }
+            }
+        };
+        MediaType m = new MediaType("image", "image/png");
+        return Response.ok(stream)
+                .type("image/png").build();
+    }
 
     @GET
     @Path("top5.json")
