@@ -74,11 +74,10 @@
                         </div>
                     </div>
                     <div class="col-sm-1 text-right">
-                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">Data Sets</a></br>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#dataDialog">Data Sets</a></br>
                         <a style="cursor:pointer" data-toggle="modal" data-target="#teamDialog">Team</a></br>
-                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">GovHack</a></br>
-                        <a style="cursor:pointer" data-toggle="modal" data-target="#techDialog">Technical</a></br>
-                        <a style="cursor:pointer" data-toggle="modal" data-target="#infoDialog">Other</a></br>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#methDialog">Methodoloy</a></br>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#techDialog">Technical</a></br>                        
                     </div>                
                 </div>
             </div>
@@ -132,9 +131,7 @@
                                         <img class="local" data-imagecode="rest/fte.png" src="" style="width:100%;" />
                                     </div> 
 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/unemp.png" src="" style="width:100%;" />
-                                    </div>
+
                                 <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
                                         <img class="local" data-imagecode="rest/trademarksincrease.png" src="" style="width:100%;" />
                                     </div> 
@@ -142,14 +139,18 @@
                                         <img class="local" data-imagecode="rest/medianincome.png" src="" style="width:100%;" />
                                     </div> 
                                     <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                        <img class="local" data-imagecode="rest/houseprice.png" src="" style="width:100%;" />
+                                    </div> 
+                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                        <img class="local" data-imagecode="rest/rentprice.png" src="" style="width:100%;" />
+                                    </div> 
+                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
                                         <img class="local" data-imagecode="rest/newbusinessincrease.png" src="" style="width:100%;" />
                                     </div> 
                                     <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
                                         <img class="local" data-imagecode="rest/patentincrease.png" src="" style="width:100%;" />
                                     </div> 
-                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
-                                        <img class="local" data-imagecode="rest/rentprice.png" src="" style="width:100%;" />
-                                    </div> 
+
                                     <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
                                         <img class="local" data-imagecode="rest/sa4unemprate.png" src="" style="width:100%;" />
                                     </div> 
@@ -157,13 +158,15 @@
                                         <img class="local" data-imagecode="rest/totalbusinesses.png" src="" style="width:100%;" />
                                     </div> 
 
-
                                 </div>
                             </div> 
                             <div class="xtab-pane" id="TabB" style="display:none; min-height:900px;border:1px dashed blue">
-                                <div class=""> 
-                                    <div id="columnchart_values" > </div>
-                                </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                        <img class="local" data-imagecode="rest/unemp.png" src="" style="width:100%;" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6" style="padding-top:5px;">
+                                        <img class="local" data-imagecode="rest/averageannualmvmt.png" src="" style="width:100%;" />
+                                    </div> 
                             </div> 
                             <div class="xtab-pane" id="TabC" style="display:none; min-height:900px;border:1px dashed blue">
                                 <div class=""> 
@@ -186,7 +189,24 @@
                                         <!-- ****************************************  -->
                                         <!--  dialogs -->
                                         <!-- ****************************************  -->
-                                        <div id="infoDialog" class="modal fade">
+                                        <div id="dataDialog" class="modal fade">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Details</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Text text text</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+                                        
+                                        <div id="methDialog" class="modal fade">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -209,10 +229,17 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                        <h4 class="modal-title">Details</h4>
+                                                        <h4 class="modal-title">Team</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Move caree</p>
+                                                        Career move designed and developed by :<br><br>
+                                                        <ul>
+                                                        <li>Julie Considene</li>
+                                                        <li>Jeff Sinclair</li>
+                                                        <li>James Gardner</li>
+                                                        <li>Richard Hill</li>
+                                                        <li>Leon Salam</li>
+                                                        </ul>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        

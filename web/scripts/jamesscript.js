@@ -62,11 +62,13 @@ selectSingleClick.on('select', function(e) {
     var feats = e.selected;
     if( feats.length == 0 ) return;
     var sa4=feats[0];
+    //alert(sa4.getProperties()["SA4_CODE11"]);
     showResult(sa4.getProperties()["SA4_CODE11"]);
     });
 selectClick.on('select', function(e) {
     var feats = e.selected;
     if( feats.length == 0 ) return;
     var sa4=feats[0];
+    //alert(sa4.getProperties()["SA4_CODE11"]);
     showResult(sa4.getProperties()["SA4_CODE11"]);
     });
